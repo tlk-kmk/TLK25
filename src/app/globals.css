@@ -1,26 +1,328 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* COLORS */
+
+  --white: #ffffff;
+  --grey: #A3A9BD;
+  --white-gradient: linear-gradient(to bottom right, #E7EBF9, #FFFFFF);
+
+
+  /* OUTER SHADOWS */
+
+  --box-grey-large-50: 40px 40px 80px rgba(214, 220, 241, 0.5);
+  --box-grey-large-100: 40px 40px 80px rgba(214, 220, 241, 1);
+  --box-grey-small-50: 20px 20px 30px rgba(214, 220, 241, 0.5);
+  --box-grey-small-100: 20px 20px 30px rgba(214, 220, 241, 1);
+  --box-white-large-50: -40px -40px 80px rgba(255, 255, 255, 0.5);
+  --box-white-large-100: -40px -40px 80px rgba(255, 255, 255, 1);
+  --box-white-small-50: -20px -20px 30px rgba(255, 255, 255, 0.5);
+  --box-white-small-100: -20px -20px 30px rgba(255, 255, 255, 1);
+
+
+  /* INNER SHADOWS */
+
+  --inner-grey: inset 12px 12px 40px rgba(233, 236, 249, 0.5);
+  --inner-white: inset -12px -12px 40px rgba(255, 255, 255, 0.5);
+
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+ /* FONTS */
+
+@font-face {
+  font-family: 'Aerion Regular';
+  src: url('public/fonts/aerion-regular.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@font-face {
+  font-family: 'Aerion Bold';
+  src: url('public/fonts/aerion-bold.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aerion Black';
+  src: url('public/fonts/aerion-black.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+.special-char {
+
+  font-feature-settings: 'ss01' 1;
+
+}
+
+
+ /* GENERAL */
+
+
+body {
+  background: var(--white);
+  font-family: 'Aerion Bold', Helvetica, sans-serif;
+}
+
+.type-base {
+
+  background: linear-gradient(124deg, #000 11.43%, #464953 72.8%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  font-family: 'Aerion Black', Helvetica, sans-serif;
+  text-align: center;
+  font-feature-settings: 'ss03' on;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 1000;
+  line-height: normal;
+  letter-spacing: 1.44px;
+
+}
+
+.grey-text {
+
+  background: linear-gradient(124deg, #A3A9BD 11.43%, #A3A9BD 72.8%);
+  background-clip: text;
+
+}
+
+.fundament {
+
+  width: 100vw;
+  height: 100svh;
+  overflow: hidden;
+  display: flex;
+  background-color: var(--white);
+
+}
+
+.content-frame {
+
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  background-image: var(--white-gradient);
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow:
+    var(--box-grey-large-50),
+    var(--box-white-large-50),
+    var(--inner-grey),
+    var(--inner-white);
+
+}
+
+.hero-type-top {
+
+  position: absolute;
+  top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.hero-type-bottom {
+
+  position: absolute;
+  bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.socialmedia {
+
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+
+}
+
+.spiral-container {
+
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+
+}
+
+@keyframes rotateSpiral {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+
+.logo-spiral {
+
+  position: absolute;
+  width: 160%;
+  height: 160%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: rotateSpiral 60s linear infinite;
+
+}
+
+.type-container {
+
+  position: absolute;
+  width: 1000px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.threed {
+
+  position: relative;
+  width: 1200px;
+  height: 800px;
+
+}
+
+
+/* DESKTOP */
+@media (width >= 1920px) {
+
+  .logo-spiral {
+
+    width: 140%;
+    height: 140%;
+  
+  }
+
+  .type-container {
+
+    width: 1400px;
+    height: auto;
+  
+  }
+
+  .threed {
+
+    position: relative;
+    width: 1600px;
+    height: 1100px;
+  
+  }
+
+}
+
+@media (width >= 1024px) {
+
+  .fundament {
+
+    padding: 24px;
+  
+  }
+
+}
+
+
+
+/* TABLET */
+@media (width < 1024px) {
+
+  .fundament {
+
+    padding: 16px;
+  
+  }
+
+  .logo-spiral {
+
+    width: 280%;
+    height: 280%;
+  
+  }
+
+  .type-container {
+
+    width: 1100px;
+    height: auto;
+  
+  }
+
+  .threed {
+
+    width: 700px;
+    height: 700px;
+  
+  }
+
+}
+
+
+
+/* MOBILE */
+@media (width <= 567px) {
+
+  .fundament {
+
+    padding: 8px;
+  
+  }
+
+  .hero-type-top {
+
+    top: 40px;
+
+  }
+
+  .hero-type-bottom {
+
+    bottom: 40px;
+  
+  }
+
+  .logo-spiral {
+
+    width: 400%;
+    height: 400%;
+  
+  }
+
+  .threed {
+
+    width: 500px;
+    height: 500px;
+  
+  }
+
 }
