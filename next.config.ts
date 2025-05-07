@@ -13,4 +13,14 @@ const nextConfig: NextConfig = {
   },
 };
 
+module.exports = {
+  webpack(config, { isServer }) {
+    if (!isServer) {
+      config.resolve.alias['@/fonts'] = path.join(__dirname, 'public/fonts');
+    }
+    return config;
+  },
+}
+
+
 export default nextConfig;
