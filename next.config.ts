@@ -1,9 +1,15 @@
-import path from 'path'; // Import path module
+import path from 'path';
+import type { NextConfig } from 'next';
+import type { Configuration } from 'webpack';
 
-const nextConfig = {
-  webpack(config, { isServer }) {
+const nextConfig: NextConfig = {
+  webpack(config: Configuration, { isServer }: { isServer: boolean }) {
     if (!isServer) {
-      config.resolve.alias['@/fonts'] = path.join(__dirname, 'public/fonts');
+      config.resolve = config.resolve || {};
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        '@/fonts': path.join(__dirname, 'public/fonts'),
+      };
     }
     return config;
   },
