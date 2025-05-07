@@ -1,24 +1,20 @@
-// components/LineAnimation.tsx
 "use client";
 
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 // Easing function (ease-in-out-cubic)
 function easeInOutCubic(t: number): number {
   return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 }
 
-interface LineAnimationProps {}
-
-export function LineAnimation({}: LineAnimationProps) {
+export function LineAnimation() {
   useEffect(() => {
     const lines = document.querySelectorAll('.line'); // Changed selector to class
     const animationDuration = 4000; // 4 seconds in milliseconds
 
-    lines.forEach(line => {
+    lines.forEach((line) => {
       function step(timestamp: number) {
         const progress = (timestamp % animationDuration) / animationDuration;
-        const easedProgress = easeInOutCubic(progress);
         let width: number;
 
         if (progress < 0.5) {
@@ -29,7 +25,8 @@ export function LineAnimation({}: LineAnimationProps) {
           width = 32 - (32 - 16) * easeInOutCubic((progress - 0.5) * 2); // Adjust progress to fit 0-1 range for this half
         }
 
-        line.style.width = `${width}px`;
+        // Cast the line to HTMLElement to access the style property
+        (line as HTMLElement).style.width = `${width}px`;
         requestAnimationFrame(step);
       }
 

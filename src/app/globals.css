@@ -30,9 +30,9 @@
 
  /* FONTS */
 
-@font-face {
+ @font-face {
   font-family: 'Aerion Regular';
-  src: url('public/fonts/aerion-regular.woff2') format('woff2');
+  src: url('/fonts/aerion-regular.woff2') format('woff2'); /* Changed path */
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -40,16 +40,16 @@
 
 @font-face {
   font-family: 'Aerion Bold';
-  src: url('public/fonts/aerion-bold.woff2') format('woff2');
-  font-weight: 300;
+  src: url('/fonts/aerion-bold.woff2') format('woff2'); /* Changed path */
+  font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Aerion Black';
-  src: url('public/fonts/aerion-black.woff2') format('woff2');
-  font-weight: 300;
+  src: url('/fonts/aerion-black.woff2') format('woff2'); /* Changed path */
+  font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
