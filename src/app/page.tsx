@@ -15,7 +15,6 @@ export default function Home() {
   const xRef = useRef<HTMLAnchorElement>(null);
   const discordRef = useRef<HTMLAnchorElement>(null);
   const isMobile = useIsMobile();
-  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     if (behanceRef.current) LogoHover(behanceRef.current);
@@ -25,7 +24,7 @@ export default function Home() {
 
   return (
     <>
-      <Loader onComplete={() => setIsLoaded(true)} />
+      <Loader onComplete={() => {}} />
 
       <div className="fundament">
         <div className="content-frame">
