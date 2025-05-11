@@ -40,6 +40,7 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
       return () => clearTimeout(delay);
     }
   }, [progress, minTimePassed, onComplete]);
+// Force Vercel rebuild
 
   return (
     <>
