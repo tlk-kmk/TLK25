@@ -1,7 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { LineAnimation } from '@/components/LineAnimation';
 import { LogoHover } from '@/components/LogoHover';
 import Loader from '@/components/Loader';
