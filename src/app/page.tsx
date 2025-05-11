@@ -167,6 +167,9 @@ export default function Home() {
         <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <div className="threed">
             <Scene />
+            <div className='glow-container'>
+              <div className='glow'></div>
+            </div>
           </div>
         </div>
       </div>

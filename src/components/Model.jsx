@@ -29,7 +29,7 @@ function Model(props) {
   useFrame(({ clock }) => {
     if (logoMesh.current) {
     const elapsed = clock.getElapsedTime();
-    logoMesh.current.rotation.y = elapsed * 1; 
+    logoMesh.current.rotation.y = elapsed * 0.75; 
     }
   });
 
@@ -67,15 +67,12 @@ function Model(props) {
         >
           <MeshTransmissionMaterial
             thickness={12}
-            roughness={0.15}
+            roughness={0}
             transmission={1}
             ior={1.5}
-            chromaticAberration={0.1}
-            backside={false}
-            distortion={0.1}
-            anisotropy={1}
-            distortionScale={1}
-            temporalDistortion={0.05}
+            chromaticAberration={0.05}
+            backside={true}
+            anisotropy={1.5}
             clearcoat={1}
             depthWrite={false}
           />

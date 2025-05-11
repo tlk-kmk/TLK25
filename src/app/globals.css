@@ -220,6 +220,29 @@ body {
 
 }
 
+.glow-container {
+
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  z-index: -1;
+
+}
+
+.glow {
+
+  width: 160px;
+  height: 160px;
+  border-radius: 200px;
+  background-color: #5d6db4;
+  filter: blur(160px);
+
+}
+
 
 /* DESKTOP */
 @media (width >= 1920px) {
