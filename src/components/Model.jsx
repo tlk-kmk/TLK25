@@ -70,9 +70,8 @@ function Model(props) {
             roughness={0}
             transmission={1}
             ior={1.5}
-            chromaticAberration={0.05}
+            chromaticAberration={0.02}
             backside={true}
-            anisotropy={1.5}
             clearcoat={1}
             depthWrite={false}
           />
