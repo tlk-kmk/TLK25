@@ -82,7 +82,7 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
               <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                style={{ fontSize: '8rem' }}
+                style={{ fontSize: '6rem' }}
               >
                 {progress}%
               </motion.span>
