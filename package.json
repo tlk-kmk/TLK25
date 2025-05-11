@@ -12,6 +12,7 @@
     "@react-three/drei": "^10.0.7",
     "@react-three/fiber": "^9.1.2",
     "drei": "^2.2.21",
+    "framer-motion": "^12.10.5",
     "leva": "^0.10.0",
     "lodash": "^4.17.21",
     "next": "^15.3.2",
