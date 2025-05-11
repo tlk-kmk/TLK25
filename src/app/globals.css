@@ -241,8 +241,8 @@ body {
   width: 160px;
   height: 160px;
   border-radius: 200px;
-  background-color: #5d6db4;
-  filter: blur(160px);
+  background-color: #5d6db4a1;
+  filter: blur(200px);
 
 }
 
@@ -337,13 +337,13 @@ body {
 
   .hero-type-top {
 
-    top: 40px;
+    top: 32px;
 
   }
 
   .hero-type-bottom {
 
-    bottom: 40px;
+    bottom: 32px;
   
   }
 
@@ -356,8 +356,8 @@ body {
 
   .threed {
 
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
   
   }
 

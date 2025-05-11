@@ -1,53 +1,46 @@
 'use client';
 import React, { useRef } from 'react';
 import { useGLTF, MeshTransmissionMaterial, Environment } from '@react-three/drei';
-import { useFrame, useThree } from '@react-three/fiber';
-import { MeshBasicMaterial } from 'three';
+import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
 function Model(props) {
-  const logoMesh = useRef();
-  const { nodes } = useGLTF('/components/tlk-min.gltf');
-  const { scene } = useThree();
+  const wingsRef = useRef();
+  const headTailRef = useRef();
 
-  if (!nodes?.TlkLogo?.geometry) {
-    console.warn('TlkLogo geometry not found in GLTF');
+  const { nodes } = useGLTF('/components/tlk-min.glb');
+
+
+  if (!nodes?.Type?.geometry || !nodes?.Wings?.geometry || !nodes?.HeadTail?.geometry) {
+    console.warn('One or more geometries not found in GLTF');
     return null;
   }
 
-  if (!nodes?.Type?.geometry) {
-    console.warn('Type geometry not found in GLTF');
-    return null;
-  }
-
-  const staticRotation = [-0.05, 0, 0];
+  const staticRotation = [0, 0, 0];
   const typePosition = [0, 0, -124];
   const typeScale = [1.05, 1.05, 1];
 
   const whiteMaterial = React.useMemo(() => new THREE.MeshBasicMaterial({ color: 'white' }), []);
 
+
   useFrame(({ clock }) => {
-    if (logoMesh.current) {
     const elapsed = clock.getElapsedTime();
-    logoMesh.current.rotation.y = elapsed * 0.75; 
+
+    if (wingsRef.current) {
+      wingsRef.current.rotation.y = elapsed * 0.75;
+    }
+    if (headTailRef.current) {
+      headTailRef.current.rotation.y = elapsed * 0.75;
     }
   });
 
-
-
-
-
   return (
     <>
-      {/* Realistic lighting and reflections */}
-      <Environment
-        files="/hdr/studio-e.exr"
-        background={false}
-      />
-      
+      {/* Environment Lighting */}
+      <Environment files="/hdr/studio-e.exr" background={false} />
 
-      <group {...props} dispose={null} scale={[0.025, 0.025, 0.025]}>
-        {/* BACKGROUND TEXT */}
+      <group {...props} dispose={null} scale={[1, 1, 1]}>
+        {/* Static Background Text */}
         <mesh
           geometry={nodes.Type.geometry}
           position={typePosition}
@@ -56,26 +49,43 @@ function Model(props) {
           renderOrder={0}
         />
 
+        {/* Grouped Animating Logo Pieces */}
+        <group position={[0, -8, -50]} rotation={staticRotation}>
+          <mesh
+            ref={wingsRef}
+            geometry={nodes.Wings.geometry}
+            position={[0, 40, 0]}
+            renderOrder={1}
+          >
+            <MeshTransmissionMaterial
+              thickness={16}
+              roughness={0}
+              transmission={0.99}
+              ior={1.5}
+              chromaticAberration={0.1}
+              backside={false}
+              clearcoat={1}
+              depthWrite={false}
+            />
+          </mesh>
 
-        {/* TRANSMISSIVE LOGO */}
-        <mesh
-          ref={logoMesh}
-          geometry={nodes.TlkLogo.geometry}
-          rotation={staticRotation}
-          position={[0, 0, 10]}
-          renderOrder={1}
-        >
-          <MeshTransmissionMaterial
-            thickness={12}
-            roughness={0}
-            transmission={1}
-            ior={1.5}
-            chromaticAberration={0.02}
-            backside={true}
-            clearcoat={1}
-            depthWrite={false}
-          />
-        </mesh>
+          <mesh
+            ref={headTailRef}
+            geometry={nodes.HeadTail.geometry}
+            renderOrder={1}
+          >
+            <MeshTransmissionMaterial
+              thickness={12}
+              roughness={0}
+              transmission={0.99}
+              ior={1.5}
+              chromaticAberration={0.1}
+              backside
+              clearcoat={1}
+              depthWrite={false}
+            />
+          </mesh>
+        </group>
       </group>
     </>
   );
