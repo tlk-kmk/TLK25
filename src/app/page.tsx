@@ -50,7 +50,16 @@ export default function Home() {
               }}
             >
               <div className="line" style={{ width: '16px', height: '1px', backgroundColor: '#A3A9BD' }} />
-              <img src="/logo.svg" alt="Logo" style={{ width: '21px', height: '14px' }} />
+                <div style={{ width: '21px', height: '14px', position: 'relative' }}>
+                  <Image
+                  src="/logo.svg"
+                  alt="Logo"
+                  fill
+                  priority
+                  unoptimized
+                  style={{ objectFit: 'contain' }}
+                  />
+                </div>
               <div className="line" style={{ width: '16px', height: '1px', backgroundColor: '#A3A9BD' }} />
             </div>
           </div>
