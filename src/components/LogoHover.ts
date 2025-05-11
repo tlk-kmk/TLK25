@@ -25,7 +25,7 @@ export const LogoHover = (element: HTMLAnchorElement) => {
       left: 0;
       right: 0;
       bottom: 0;
-      background-image: linear-gradient(124deg, #000 11.43%, #464953 72.8%);
+      background-image: linear-gradient(to bottom right, #E7EBF9, #FFFFFF);
       opacity: 0;
       transition: opacity 300ms ease-in-out;
       z-index: -1;

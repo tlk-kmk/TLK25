@@ -75,22 +75,13 @@ function Scene() {
     <div ref={containerRef} style={{ width: '100%', height: '100%' }}>
       <ErrorBoundary>
         <Canvas
-          camera={{ position: [0, 0, 12], fov: 40 }}
+          camera={{ position: [0, 0, 12], fov: 45, near: 1, far: 140 }}
           gl={{ antialias: true, alpha: true, preserveDrawingBuffer: true, powerPreference: 'high-performance' }}
           onCreated={({ gl }) => {
             console.log('WebGL version:', gl.capabilities.isWebGL2 ? 'WebGL2' : 'WebGL1');
           }}
           style={{ width: size.width, height: size.height }}
         >  
-            <ambientLight intensity={0.5} />
-           <Environment 
-                  background={false} 
-                  preset='studio'
-                  frames={Infinity}
-                  resolution={512} 
-            />
-
-          
 
           <Model />
 

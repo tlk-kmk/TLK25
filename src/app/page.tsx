@@ -1,19 +1,23 @@
 'use client';
 
 import dynamic from 'next/dynamic';
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { LineAnimation } from '@/components/LineAnimation'; // Using '@/components' alias
 import { LogoHover } from '@/components/LogoHover';      // Using '@/components' alias
 import Image from 'next/image';
+import { useIsMobile } from '@/components/MobileCheck';
 
 const Scene = dynamic(() => import('@/components/Scene'), { // Using '@/components' alias
   ssr: false
 });
 
+
+
 export default function Home() {
   const behanceRef = useRef<HTMLAnchorElement>(null);
   const xRef = useRef<HTMLAnchorElement>(null);
   const discordRef = useRef<HTMLAnchorElement>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     if (behanceRef.current) {
@@ -25,8 +29,10 @@ export default function Home() {
     if (discordRef.current) {
       LogoHover(discordRef.current);
     }
-  }, []); // Empty dependency array - runs only once after initial render
+  }, []);
 
+
+  // Output
   return (
     <div className="fundament">
       <div className="content-frame">
@@ -64,8 +70,8 @@ export default function Home() {
             <Image
               src="/logo.svg"
               alt="Logo"
-              width={21} // Corrected here
-              height={14} // Corrected here
+              width={21}
+              height={14}
             />
             <div
               className="line"
@@ -143,11 +149,16 @@ export default function Home() {
               onContextMenu={(e) => e.preventDefault()} // Prevent context menu on the overlay
             />
             <Image
-              src="/components/spiral-logo-50.png"
+              src={
+                isMobile
+                ? '/components/spiral-logo-50-mobile.png'
+                : '/components/spiral-logo-50.png'
+                }
               alt="Logo Spiral"
-              width={1000} // Corrected here (number, not string)
-              height={1000} // Corrected here (number, not string)
-              layout="responsive" // Makes the image scale according to its container
+              width={1000}
+              height={1000}
+              layout="responsive"
+              priority
             />
           </div>
         </div>

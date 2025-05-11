@@ -4,8 +4,12 @@
   /* COLORS */
 
   --white: #ffffff;
+  --black: #000000;
+  --dark-grey: #0B0B0D;
+  --dark-grey-2: #171922;
   --grey: #A3A9BD;
   --white-gradient: linear-gradient(to bottom right, #E7EBF9, #FFFFFF);
+  --grey-gradient: linear-gradient(to bottom right, #8088AA, #cdd2e4);
 
 
   /* OUTER SHADOWS */
@@ -65,13 +69,13 @@
 
 
 body {
-  background: var(--white);
+  background: var(--black);
   font-family: 'Aerion Bold', Helvetica, sans-serif;
 }
 
 .type-base {
 
-  background: linear-gradient(124deg, #000 11.43%, #464953 72.8%);
+  background: var(--grey-gradient);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -100,7 +104,9 @@ body {
   height: 100svh;
   overflow: hidden;
   display: flex;
-  background-color: var(--white);
+  background-color: var(--dark-grey);
+  border-radius: 24px;
+  overflow: hidden;
 
 }
 
@@ -109,17 +115,14 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 24px;
-  background-image: var(--white-gradient);
+  background-image: var(--dark-grey);
   position: relative;
   z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow:
-    var(--box-grey-large-50),
-    var(--box-white-large-50),
-    var(--inner-grey),
-    var(--inner-white);
+  border: 1px solid var(--dark-grey-2);
+  overflow: hidden;
 
 }
 
@@ -188,12 +191,13 @@ body {
 .logo-spiral {
 
   position: absolute;
-  width: 160%;
-  height: 160%;
+  width: 200%;
+  height: 200%;
   display: flex;
   justify-content: center;
   align-items: center;
   animation: rotateSpiral 60s linear infinite;
+  opacity: 0.24;
 
 }
 
