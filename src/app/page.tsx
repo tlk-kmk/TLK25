@@ -67,12 +67,8 @@ export default function Home() {
                 backgroundColor: '#A3A9BD',
               }}
             ></div>
-            <Image
-              src="/logo.svg"
-              alt="Logo"
-              width={21}
-              height={14}
-            />
+            <img src="/logo.svg" alt="Logo" style={{ width: '21px', height: '14px' }} />
+
             <div
               className="line"
               style={{
