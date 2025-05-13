@@ -59,11 +59,11 @@ function Model(props) {
           >
             <MeshTransmissionMaterial
               thickness={16}
-              roughness={0}
+              roughness={0.03}
               transmission={0.99}
               ior={1.5}
-              chromaticAberration={0.1}
-              backside={false}
+              chromaticAberration={0.2}
+              backside={true}
               clearcoat={1}
               depthWrite={false}
             />
@@ -76,11 +76,11 @@ function Model(props) {
           >
             <MeshTransmissionMaterial
               thickness={12}
-              roughness={0}
+              roughness={0.03}
               transmission={0.99}
               ior={1.5}
-              chromaticAberration={0.1}
-              backside
+              chromaticAberration={0.2}
+              backside={true}
               clearcoat={1}
               depthWrite={false}
             />

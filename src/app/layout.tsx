@@ -1,20 +1,29 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Timo Leon Krause – Product Design & Brand Identity",
-  description: "THE PHENOMENON OF A SLIGHT ACTION LEADING TO SIGNIFICANT IMPACT.",
+  title: 'Timo Leon Krause – Product Design & Brand Identity',
+  description: 'THE PHENOMENON OF A SLIGHT ACTION LEADING TO SIGNIFICANT IMPACT.',
+  openGraph: {
+    title: 'Timo Leon Krause – Product Design & Brand Identity',
+    description: 'THE PHENOMENON OF A SLIGHT ACTION LEADING TO SIGNIFICANT IMPACT.',
+    url: 'https://www.tlk.hamburg',
+    type: 'website',
+    images: [
+      {
+        url: 'https://www.tlk.hamburg/public/components/preview.png', // full URL required
+        width: 1200,
+        height: 630,
+        alt: 'TLK Logo',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Timo Leon Krause – Product Design & Brand Identity',
+    description: 'THE PHENOMENON OF A SLIGHT ACTION LEADING TO SIGNIFICANT IMPACT.',
+    images: ['https://www.tlk.hamburg/public/components/preview.png'],
+  },
 };
 
 export default function RootLayout({
@@ -24,9 +33,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        {/* Apple Touch Icon */}
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+
+        {/* Android */}
+        <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
+
+
+      </head>
+      <body>
         {children}
       </body>
     </html>

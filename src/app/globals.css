@@ -75,6 +75,9 @@
 body {
   background: var(--black);
   font-family: 'Aerion Bold', Helvetica, sans-serif;
+  touch-action: manipulation; /* Prevents double-tap zoom */
+  overscroll-behavior: none;
+  -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape on iOS */
 }
 
 .type-base {
@@ -87,7 +90,7 @@ body {
   font-family: 'Aerion Black', Helvetica, sans-serif;
   text-align: center;
   font-feature-settings: 'ss03' on;
-  font-size: 12px;
+  font-size: 11px;
   font-style: normal;
   font-weight: 1000;
   line-height: normal;
@@ -97,7 +100,7 @@ body {
 
 .grey-text {
 
-  background: linear-gradient(124deg, #A3A9BD 11.43%, #A3A9BD 72.8%);
+  background: linear-gradient(124deg, #696F8A 11.43%, #696F8A 72.8%);
   background-clip: text;
 
 }
@@ -135,21 +138,52 @@ body {
   top: 60px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   justify-content: center;
   align-items: center;
+  z-index: 9;
+  height: 32px;
 
 }
 
 .hero-type-bottom {
 
   position: absolute;
-  bottom: 60px;
+  bottom: 48px;
   display: flex;
   flex-direction: column;
   gap: 12px;
   justify-content: center;
   align-items: center;
+  z-index: 9;
+
+}
+
+.hero-right {
+
+  position: absolute;
+  top: 60px;
+  right: 60px;
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  z-index: 9;
+  height: 32px;
+
+}
+
+.hero-left {
+
+  position: absolute;
+  top: 60px;
+  left: 60px;
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  z-index: 9;
+  height: 32px;
 
 }
 
@@ -311,10 +345,37 @@ body {
 
   .threed {
 
-    width: 700px;
+    width: 1200px;
     height: 700px;
   
   }
+
+  .hero-right {
+
+  top: 40px;
+  right: 40px;
+
+  }
+
+  .hero-left {
+
+  top: 40px;
+  left: 40px;
+
+  }
+
+  .hero-type-top {
+
+    top: 40px;
+
+  }
+
+  .hero-type-bottom {
+
+    bottom: 32px;
+  
+  }
+
 
 }
 
@@ -337,14 +398,29 @@ body {
 
   .hero-type-top {
 
-    top: 32px;
+    display: none;
 
   }
 
   .hero-type-bottom {
 
-    bottom: 32px;
+    bottom: 24px;
   
+  }
+
+  .hero-right {
+
+  top: 24px;
+  right: 24px;
+  gap: 16px;
+
+  }
+
+  .hero-left {
+
+  top: 24px;
+  left: 24px;
+
   }
 
   .logo-spiral {
@@ -359,6 +435,12 @@ body {
     width: 520px;
     height: 520px;
   
+  }
+
+  .mobile-hide {
+
+    display: none;
+
   }
 
 }

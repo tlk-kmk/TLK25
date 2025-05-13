@@ -27,6 +27,7 @@ export default function Home() {
       <Loader onComplete={() => {}} />
 
       <div className="fundament">
+        
         <div className="content-frame">
           <LineAnimation />
 
@@ -35,33 +36,44 @@ export default function Home() {
             <p
               id="hero-text"
               className="type-base"
-              style={{ maxWidth: '335px', textAlign: 'center', opacity: '0.8' }}
+              style={{ textAlign: 'center', opacity: '0.8', width: '375px' }}
             >
               THE PHENOMENON OF <span className="special-char">A</span> SLIGHT <span className="special-char">A</span>CTION LE<span className="special-char">A</span>DING TO SIGNIFICANT IMP<span className="special-char">A</span>CTS.
             </p>
+         
+            {/*
+            <div className="line" style={{ width: '16px', height: '1px', backgroundColor: '#696F8A' }} />
+            */}
+          </div>
 
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'row',
-                gap: '12px',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <div className="line" style={{ width: '16px', height: '1px', backgroundColor: '#A3A9BD' }} />
-                <div style={{ width: '21px', height: '14px', position: 'relative' }}>
-                  <Image
+          {/* TOP RIGHT */}
+          <div className='hero-right'>
+              
+              <div className="line" style={{ width: '16px', height: '1px', backgroundColor: '#696F8A' }} />
+              <Image
                   src="/logo.svg"
                   alt="Logo"
-                  fill
                   priority
                   unoptimized
-                  style={{ objectFit: 'contain' }}
-                  />
-                </div>
-              <div className="line" style={{ width: '16px', height: '1px', backgroundColor: '#A3A9BD' }} />
-            </div>
+                  width={24}
+                  height={16}
+              />
+          </div>
+
+          {/* TOP LEFT */}
+          <div className='hero-left'>
+            <Image
+            src="/tlk-type.svg"
+            alt="Type"
+            priority
+            unoptimized
+            width={88}
+            height={32}
+            />
+            
+            {/*
+            <div className="line" style={{ width: '16px', height: '1px', backgroundColor: '#696F8A' }} />
+            */}
           </div>
 
           {/* BOTTOM TYPE */}
@@ -69,7 +81,7 @@ export default function Home() {
             <p
               id="hero-text"
               className="type-base"
-              style={{ maxWidth: '335px', textAlign: 'center', opacity: '0.8' }}
+              style={{ maxWidth: '80vw', textAlign: 'center', opacity: '0.8' }}
             >
               PRODUCT DESIGN <span className="grey-text">/</span>{' '}
               <span className="special-char">BRAND IDENTITY</span>
@@ -85,7 +97,7 @@ export default function Home() {
                 zIndex: '999',
               }}
             >
-              <div className="line" style={{ width: '16px', height: '1px', backgroundColor: '#A3A9BD' }} />
+              <div className="line" style={{ width: '16px', height: '1px', backgroundColor: '#696F8A' }} />
               <a ref={behanceRef} className="socialmedia" href="https://www.behance.net/tlk-hh" target="_blank">
                 <Image id="sm" src="/components/behance.svg" alt="Behance" width={19} height={12} />
               </a>
@@ -100,7 +112,7 @@ export default function Home() {
               >
                 <Image id="sm" src="/components/discord.svg" alt="Discord" width={20} height={16.25} />
               </a>
-              <div className="line" style={{ width: '16px', height: '1px', backgroundColor: '#A3A9BD' }} />
+              <div className="line" style={{ width: '16px', height: '1px', backgroundColor: '#696F8A' }} />
             </div>
           </div>
 
