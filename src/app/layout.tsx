@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://www.tlk.hamburg/public/components/preview.png', // full URL required
+        url: 'https://www.tlk.hamburg/components/preview.png', // full URL required
         width: 1200,
         height: 630,
         alt: 'TLK Logo',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Timo Leon Krause – Product Design & Brand Identity',
     description: 'THE PHENOMENON OF A SLIGHT ACTION LEADING TO SIGNIFICANT IMPACT.',
-    images: ['https://www.tlk.hamburg/public/components/preview.png'],
+    images: ['https://www.tlk.hamburg/components/preview.png'],
   },
 };
 
