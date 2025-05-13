@@ -67,7 +67,7 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
             }}
           >
             {/* Logo */}
-            <Image src="/logo.svg" alt="Logo" width={84} height={56} />
+            <Image src="/logo.svg" alt="Logo" width={21} height={14} />
 
             {/* Progress percentage */}
             <div
