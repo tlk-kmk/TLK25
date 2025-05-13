@@ -36,6 +36,9 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+
         {/* Apple Touch Icon */}
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 
